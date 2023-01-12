@@ -10,6 +10,12 @@ app.use(express.json());
 
 app.use("/api/books", bookRouter);
 
+app.use("/api/books", bookRouter);
+
+app.use((_, res) => {
+  res.status(404).json({ message: "Not found" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

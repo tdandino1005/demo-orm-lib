@@ -58,7 +58,21 @@ export default {
     return Book.bulkCreate(SEED_DATA);
   },
 
-  index() {
-    return Book.findAll();
+  index(columns) {
+    // If 'columns' is undefined, it will return all columns
+    return Book.findAll({ attributes: columns });
+  },
+
+  show(isbn) {
+    return Book.findOne({ where: { isbn } });
+  },
+
+  update(isbn, payload) {
+    return Book.update(payload, { where: { isbn } });
+  },
+
+  delete(isbn) {
+    return Book.destroy({ where: { isbn } });
   },
 };
+

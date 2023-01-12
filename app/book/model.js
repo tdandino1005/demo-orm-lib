@@ -1,4 +1,3 @@
-import { DataTypes } from "sequelize";
 import sequelize from "../conn.js";
 
 const Book = sequelize.define(
